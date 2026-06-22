@@ -1,0 +1,330 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>AI-RWA Portfolio Optimizer Demo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a1a;
+      color: #ffffff;
+      overflow: hidden;
+    }
+    
+    .clip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+    }
+    
+    .bg-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+    }
+    
+    .bg-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+      filter: blur(80px);
+    }
+    
+    .bg-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(102, 126, 234, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(102, 126, 234, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    
+    .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 120px;
+    }
+    
+    .logo {
+      font-size: 80px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .subtitle {
+      font-size: 32px;
+      font-weight: 300;
+      color: #aaa;
+      margin-bottom: 40px;
+    }
+    
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      border-radius: 16px;
+      padding: 40px;
+      margin: 20px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .feature-title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #667eea;
+    }
+    
+    .feature-desc {
+      font-size: 18px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 40px;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 48px;
+      font-weight: 700;
+      color: #667eea;
+    }
+    
+    .stat-label {
+      font-size: 16px;
+      color: #888;
+      margin-top: 8px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      margin-top: 40px;
+    }
+    
+    .caption {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 24px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 12px 24px;
+      margin: 0 200px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div data-composition-id="root" data-width="1920" data-height="1080" data-duration="60">
+    <!-- 场景1: 开场 0-5秒 -->
+    <div id="scene1" class="clip" data-start="0" data-duration="5" data-track-index="0">
+      <div class="bg-gradient"></div>
+      <div class="bg-glow" style="top: 20%; left: 30%;"></div>
+      <div class="bg-grid"></div>
+      <div class="content">
+        <div class="logo">AI-RWA</div>
+        <div class="title">Portfolio Optimizer</div>
+        <div class="subtitle">智能投资组合优化器</div>
+      </div>
+      <div class="caption">AI-RWA Portfolio Optimizer</div>
+    </div>
+    
+    <!-- 场景2: 问题陈述 5-15秒 -->
+    <div id="scene2" class="clip" data-start="5" data-duration="10" data-track-index="0">
+      <div class="bg-gradient"></div>
+      <div class="bg-glow" style="top: 40%; left: 60%;"></div>
+      <div class="bg-grid"></div>
+      <div class="content">
+        <div class="title">传统DeFi的痛点</div>
+        <div class="feature-card">
+          <div class="feature-title">管理多种RWA资产太复杂？</div>
+          <div class="feature-desc">手动再平衡太麻烦？没有AI辅助决策？</div>
+        </div>
+      </div>
+      <div class="caption">管理多种RWA资产太复杂？手动再平衡太麻烦？</div>
+    </div>
+    
+    <!-- 场景3: 解决方案 15-25秒 -->
+    <div id="scene3" class="clip" data-start="15" data-duration="10" data-track-index="0">
+      <div class="bg-gradient"></div>
+      <div class="bg-glow" style="top: 30%; left: 40%;"></div>
+      <div class="bg-grid"></div>
+      <div class="content">
+        <div class="title">AI驱动的RWA管理</div>
+        <div class="feature-card">
+          <div class="feature-title">智能投资组合管理</div>
+          <div class="feature-desc">支持代币化的黄金、房地产、股票</div>
+        </div>
+      </div>
+      <div class="caption">我们用AI驱动智能投资组合管理</div>
+    </div>
+    
+    <!-- 场景4: 核心功能 25-35秒 -->
+    <div id="scene4" class="clip" data-start="25" data-duration="10" data-track-index="0">
+      <div class="bg-gradient"></div>
+      <div class="bg-glow" style="top: 50%; left: 50%;"></div>
+      <div class="bg-grid"></div>
+      <div class="content">
+        <div class="title">核心功能</div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value">AI策略</div>
+            <div class="stat-label">智能生成</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">自动再平衡</div>
+            <div class="stat-label">实时调整</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">价格追踪</div>
+            <div class="stat-label">Chainlink</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">智能策略生成、自动再平衡、实时价格追踪</div>
+    </div>
+    
+    <!-- 场景5: 技术架构 35-45秒 -->
+    <div id="scene5" class="clip" data-start="35" data-duration="10" data-track-index="0">
+      <div class="bg-gradient"></div>
+      <div class="bg-glow" style="top: 60%; left: 30%;"></div>
+      <div class="bg-grid"></div>
+      <div class="content">
+        <div class="title">技术架构</div>
+        <div class="feature-card">
+          <div class="feature-title">基于HSK Chain</div>
+          <div class="feature-desc">集成Chainlink Oracle，多层安全机制</div>
+        </div>
+      </div>
+      <div class="caption">基于HSK Chain，集成Chainlink Oracle</div>
+    </div>
+    
+    <!-- 场景6: 项目成果 45-55秒 -->
+    <div id="scene6" class="clip" data-start="45" data-duration="10" data-track-index="0">
+      <div class="bg-gradient"></div>
+      <div class="bg-glow" style="top: 40%; left: 60%;"></div>
+      <div class="bg-grid"></div>
+      <div class="content">
+        <div class="title">项目成果</div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value">8</div>
+            <div class="stat-label">智能合约</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">29</div>
+            <div class="stat-label">测试通过</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">API覆盖</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">8个智能合约，29个测试通过，完整API文档</div>
+    </div>
+    
+    <!-- 场景7: 结尾 55-60秒 -->
+    <div id="scene7" class="clip" data-start="55" data-duration="5" data-track-index="0">
+      <div class="bg-gradient"></div>
+      <div class="bg-glow" style="top: 50%; left: 50%;"></div>
+      <div class="bg-grid"></div>
+      <div class="content">
+        <div class="logo">AI-RWA</div>
+        <div class="title">让投资更智能</div>
+        <div class="cta-button">立即体验</div>
+      </div>
+      <div class="caption">AI-RWA Portfolio Optimizer，让投资更智能</div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    
+    // 场景1动画
+    tl.from("#scene1 .logo", { y: 50, opacity: 0, duration: 1, ease: "power3.out" }, 0);
+    tl.from("#scene1 .title", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 0.3);
+    tl.from("#scene1 .subtitle", { y: 20, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.5);
+    
+    // 场景2动画
+    tl.from("#scene2 .title", { x: -50, opacity: 0, duration: 0.8, ease: "power3.out" }, 5);
+    tl.from("#scene2 .feature-card", { scale: 0.9, opacity: 0, duration: 0.6, ease: "back.out(1.7)" }, 5.3);
+    
+    // 场景3动画
+    tl.from("#scene3 .title", { x: 50, opacity: 0, duration: 0.8, ease: "power3.out" }, 15);
+    tl.from("#scene3 .feature-card", { scale: 0.9, opacity: 0, duration: 0.6, ease: "back.out(1.7)" }, 15.3);
+    
+    // 场景4动画
+    tl.from("#scene4 .title", { y: -30, opacity: 0, duration: 0.8, ease: "power3.out" }, 25);
+    tl.from("#scene4 .stat-item", { y: 40, opacity: 0, duration: 0.5, stagger: 0.2, ease: "power2.out" }, 25.3);
+    
+    // 场景5动画
+    tl.from("#scene5 .title", { x: -50, opacity: 0, duration: 0.8, ease: "power3.out" }, 35);
+    tl.from("#scene5 .feature-card", { scale: 0.9, opacity: 0, duration: 0.6, ease: "back.out(1.7)" }, 35.3);
+    
+    // 场景6动画
+    tl.from("#scene6 .title", { y: -30, opacity: 0, duration: 0.8, ease: "power3.out" }, 45);
+    tl.from("#scene6 .stat-item", { scale: 0.8, opacity: 0, duration: 0.5, stagger: 0.2, ease: "back.out(1.7)" }, 45.3);
+    
+    // 场景7动画
+    tl.from("#scene7 .logo", { scale: 0.5, opacity: 0, duration: 1, ease: "elastic.out(1, 0.5)" }, 55);
+    tl.from("#scene7 .title", { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, 55.3);
+    tl.from("#scene7 .cta-button", { y: 20, opacity: 0, duration: 0.6, ease: "power2.out" }, 55.5);
+    
+    window.__timelines["root"] = tl;
+  </script>
+</body>
+</html>
