@@ -1,0 +1,10 @@
+node_modules/
+.env
+*.log
+cache/
+artifacts/
+frontend/build/
+ai-backend/__pycache__/
+ai-backend/.env
+.DS_Store
+coverage/

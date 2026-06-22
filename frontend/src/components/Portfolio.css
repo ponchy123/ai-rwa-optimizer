@@ -1,0 +1,171 @@
+.portfolio {
+  padding: 20px;
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.portfolio-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.portfolio-stats {
+  display: flex;
+  gap: 24px;
+}
+
+.portfolio-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.portfolio-stat .stat-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.portfolio-stat .stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.portfolio-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.asset-table {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #555;
+}
+
+.table tr:hover {
+  background: #f8f9fa;
+}
+
+.asset-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.asset-symbol {
+  font-weight: 700;
+  color: #667eea;
+  font-size: 14px;
+}
+
+.asset-name {
+  color: #666;
+  font-size: 12px;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.add-asset-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #333;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.rebalance-section {
+  text-align: center;
+}
+
+.rebalance-description {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.rebalance-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .portfolio-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .portfolio-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .portfolio-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .rebalance-actions {
+    flex-direction: column;
+  }
+}
