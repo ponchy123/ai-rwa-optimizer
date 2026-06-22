@@ -1,0 +1,6 @@
+file 'demo/audio/padded_0.mp3'
+file 'demo/audio/padded_1.mp3'
+file 'demo/audio/padded_2.mp3'
+file 'demo/audio/padded_3.mp3'
+file 'demo/audio/padded_4.mp3'
+file 'demo/audio/padded_5.mp3'
