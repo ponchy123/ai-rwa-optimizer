@@ -86,7 +86,7 @@ def create_dashboard_scene():
     """场景2: Dashboard (5-15秒)"""
     # 加载Dashboard截图
     try:
-        ui_img = Image.open("demo/frames/scene1.png").resize((WIDTH, HEIGHT))
+        ui_img = Image.open("frames/scene1.png").resize((WIDTH, HEIGHT))
     except:
         ui_img = Image.new('RGB', (WIDTH, HEIGHT), BG)
     
@@ -117,7 +117,7 @@ def create_dashboard_scene():
 def create_portfolio_scene():
     """场景3: Portfolio (15-25秒)"""
     try:
-        ui_img = Image.open("demo/frames/scene2.png").resize((WIDTH, HEIGHT))
+        ui_img = Image.open("frames/scene2.png").resize((WIDTH, HEIGHT))
     except:
         ui_img = Image.new('RGB', (WIDTH, HEIGHT), BG)
     
@@ -145,7 +145,7 @@ def create_portfolio_scene():
 def create_ai_strategy_scene():
     """场景4: AI Strategy (25-35秒)"""
     try:
-        ui_img = Image.open("demo/frames/scene3.png").resize((WIDTH, HEIGHT))
+        ui_img = Image.open("frames/scene3.png").resize((WIDTH, HEIGHT))
     except:
         ui_img = Image.new('RGB', (WIDTH, HEIGHT), BG)
     
