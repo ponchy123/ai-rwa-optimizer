@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -15,13 +16,19 @@ module.exports = {
     hardhat: {
       chainId: 31337,
     },
+    // HSK Chain主网
+    hskMainnet: {
+      url: "https://mainnet.hsk.xyz",
+      chainId: 177,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      gas: 2100000,
+      gasPrice: 1000000000,
+    },
     // HSK Chain测试网
     hskTestnet: {
-      url: process.env.WEB3_PROVIDER || "https://rpc.hashkeychain.net",
-      chainId: parseInt(process.env.CHAIN_ID || "133"),
-      accounts: process.env.PRIVATE_KEY && process.env.PRIVATE_KEY.length > 10 
-        ? [process.env.PRIVATE_KEY] 
-        : [],
+      url: "https://testnet.hsk.xyz",
+      chainId: 133,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       gas: 2100000,
       gasPrice: 1000000000,
     },

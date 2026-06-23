@@ -1,0 +1,19 @@
+{
+  "network": "HSK Chain Testnet",
+  "chainId": 133,
+  "deployer": "0xD77C2D691C1D34136FCeBe5b7Fac08eC4D1cD322",
+  "contracts": {
+    "SecurityManager": "0xF90C5A09403f4657bbED96158A0C50D0Ab911006",
+    "PriceFeed": "0x396e354d0d8E3e167f81d4d3b9d541FdAda68218",
+    "PortfolioManagerV2": "0xa38C83f0570d811666C7F7b1aA0a9949D7A49705",
+    "AIStrategyExecutor": "0x721C166D3B12E162015eC84906deA98DcBdeE653",
+    "AutoPayment": "0xd9Cb22B1748c36CeD59cBdcD5886b5bac3404B2D",
+    "tokens": {
+      "xAU": "0x61a8a2B7E528f2cAC46d9A13c788C10fa623efcE",
+      "xRE": "0x77Ed35e38E80Dc2C04076B9a50663Cc2311b4284",
+      "xST": "0x896447D80358805199d14CCf20bC68f8a81a8C21"
+    }
+  },
+  "explorer": "https://testnet-explorer.hsk.xyz",
+  "timestamp": "2026-06-23"
+}
