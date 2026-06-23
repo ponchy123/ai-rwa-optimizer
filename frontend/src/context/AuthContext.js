@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
     if (account && web3 && !isAuthenticated) {
       loginWithWallet();
     }
-  }, [account, web3]);
+  }, [account, web3, isAuthenticated]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const loginWithWallet = async () => {
     if (!account || !web3) {

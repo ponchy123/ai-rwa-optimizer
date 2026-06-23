@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useWeb3 } from '../context/Web3Context';
 import './Portfolio.css';
 
 function Portfolio() {
-  const { account, web3 } = useWeb3();
+  const { account } = useWeb3();
   const [assets, setAssets] = useState([
     { address: '0x1234...', name: '代币化黄金 (xAU)', balance: 5.2, value: 50000 },
     { address: '0x5678...', name: '代币化房地产 (xRE)', balance: 125, value: 37500 },
